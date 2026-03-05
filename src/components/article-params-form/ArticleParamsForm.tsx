@@ -4,6 +4,7 @@ import { Select } from 'src/ui/select';
 import { Text } from 'src/ui/text';
 
 import {
+	ArticleStateType,
 	backgroundColors,
 	fontColors,
 	fontFamilyOptions,
@@ -14,8 +15,20 @@ import styles from './ArticleParamsForm.module.scss';
 import clsx from 'clsx';
 import { RadioGroup } from 'src/ui/radio-group';
 import { Separator } from 'src/ui/separator';
+import { useState } from 'react';
 
-export const ArticleParamsForm = () => {
+type TArticleParamsForm = {
+	FormArticleState: ArticleStateType;
+	setFormArticleState: (value: ArticleStateType) => void;
+};
+
+export const ArticleParamsForm = ({
+	FormArticleState,
+	setFormArticleState,
+}: TArticleParamsForm) => {
+	const [formState, setFormState] =
+		useState<ArticleStateType>(FormArticleState);
+
 	return (
 		<>
 			<ArrowButton isOpen={true} onClick={() => {}} />
