@@ -16,7 +16,7 @@ const domNode = document.getElementById('root') as HTMLDivElement;
 const root = createRoot(domNode);
 
 const App = () => {
-	const [FormArticleState, setFormArticleState] =
+	const [formArticleState, setFormArticleState] =
 		useState<ArticleStateType>(defaultArticleState);
 
 	return (
@@ -24,15 +24,15 @@ const App = () => {
 			className={clsx(styles.main)}
 			style={
 				{
-					'--font-family': defaultArticleState.fontFamilyOption.value,
-					'--font-size': defaultArticleState.fontSizeOption.value,
-					'--font-color': defaultArticleState.fontColor.value,
-					'--container-width': defaultArticleState.contentWidth.value,
-					'--bg-color': defaultArticleState.backgroundColor.value,
+					'--font-family': formArticleState.fontFamilyOption.value,
+					'--font-size': formArticleState.fontSizeOption.value,
+					'--font-color': formArticleState.fontColor.value,
+					'--container-width': formArticleState.contentWidth.value,
+					'--bg-color': formArticleState.backgroundColor.value,
 				} as CSSProperties
 			}>
 			<ArticleParamsForm
-				FormArticleState={FormArticleState}
+				FormArticleState={formArticleState}
 				setFormArticleState={setFormArticleState}
 			/>
 			<Article />
