@@ -32,7 +32,7 @@ const App = () => {
 				} as CSSProperties
 			}>
 			<ArticleParamsForm
-				FormArticleState={formArticleState}
+				formArticleState={formArticleState}
 				setFormArticleState={setFormArticleState}
 			/>
 			<Article />

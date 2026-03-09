@@ -21,22 +21,22 @@ import { Separator } from 'src/ui/separator';
 import { FormEvent, useRef, useState } from 'react';
 import { useOutsideClickClose } from 'src/ui/select/hooks/useOutsideClickClose';
 
-type TArticleParamsForm = {
-	FormArticleState: ArticleStateType;
+type ArticleParamsForm = {
+	formArticleState: ArticleStateType;
 	setFormArticleState: (value: ArticleStateType) => void;
 };
 
 export const ArticleParamsForm = ({
-	FormArticleState,
+	formArticleState: formArticleState,
 	setFormArticleState,
-}: TArticleParamsForm) => {
+}: ArticleParamsForm) => {
 	const rootRef = useRef<HTMLDivElement>(null);
 	const [formState, setFormState] =
-		useState<ArticleStateType>(FormArticleState);
+		useState<ArticleStateType>(formArticleState);
 	const [formIsOpen, setFormIsOpen] = useState(false);
 
 	const formToggle = () => {
-		return setFormIsOpen((formIsOpen) => !formIsOpen);
+		setFormIsOpen((formIsOpen) => !formIsOpen);
 	};
 
 	const handleSelect = (key: keyof ArticleStateType, value: OptionType) => {
